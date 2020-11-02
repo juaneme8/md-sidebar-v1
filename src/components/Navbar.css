@@ -1,0 +1,18 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	height: 2.8125rem;
+	padding: 1em;
+}
+
+.nav-menu {
+	background-color: blue;
+}
+
+.btn-hamburger {
+	font-size: 1.25em;
+	color: #0160a1;
+	display: none;
+}
