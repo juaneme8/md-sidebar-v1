@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 * {
 	margin: 0;
 	padding: 0;
@@ -6,10 +6,11 @@
 }
 
 :root {
-	--bColor: #cce2ff;
+	--backgroundColor: #f7f7f9;
 	--primaryColor: #0160a1;
 }
 
 body {
 	font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	background-color: var(--backgroundColor);
 }

@@ -13,19 +13,12 @@ function Sidebar() {
 		<>
 			<nav className={sidebar ? 'sidebar__menu sidebar__menu--active' : 'sidebar__menu'}>
 				<ul className='sidebar__items'>
-					<li className='sidebar__toggle'>
-						<Link to='#'>
-							<svg fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-								<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12'></path>
-							</svg>
-						</Link>
-					</li>
 					{SidebarData.map((item, index) => {
 						return (
 							<li key={index} className='sidebar__link'>
-								<Link to={item.path}>
+								<Link to={item.path} className='link__group'>
 									{item.icon}
-									<span>{item.title}</span>
+									<span className='link__title'>{item.title}</span>
 								</Link>
 							</li>
 						);

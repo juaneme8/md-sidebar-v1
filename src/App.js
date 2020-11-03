@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import TopNav from './components/TopNav';
 import Sidebar from './components/Sidebar';
 import PageTitle from './components/PageTitle';
+import InstantGraphs from './components/InstantGraphs';
 
 import './App.css';
 
@@ -13,6 +14,7 @@ function App() {
 				<TopNav />
 				<PageTitle title='Resumen' subtitle='Dashboard' />
 				<Sidebar />
+				<InstantGraphs />
 				<Switch>
 					<Route path='/' />
 				</Switch>

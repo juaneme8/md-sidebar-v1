@@ -1,16 +1,15 @@
 .pageTitle {
 	height: 60px;
-	font-size: 14px;
 	background-color: var(--primaryColor);
 	display: flex;
 	align-items: center;
-	padding-left: 75px;
+	padding-left: 215px;
 	line-height: 40px;
 	color: #f6f5f9;
 }
 
 .title {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .separator {
@@ -18,5 +17,5 @@
 }
 
 .subtitle {
-	font-weight: 100;
+	font-weight: 300;
 }
