@@ -1,0 +1,13 @@
+/* assssssssssssss */
+.topNav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	height: 45px;
+	padding: 16px 25px;
+}
+
+svg {
+	width: 22px;
+}

@@ -1,0 +1,7 @@
+.pageTitle {
+	height: 60px;
+	background-color: var(--primaryColor);
+	display: flex;
+	align-items: center;
+	padding-left: 15px;
+}

@@ -1,0 +1,29 @@
+.sidebar__menu {
+	position: absolute;
+	width: 70px;
+	height: 100vh;
+	background-color: red;
+	top: 0;
+	z-index: -1;
+	transition: width 0.25s ease-in, background-color 0.25s ease-in;
+}
+
+.sidebar__menu:hover {
+	width: 215px;
+	background-color: var(--primaryColor);
+}
+
+.sidebar__items {
+	cursor: pointer;
+}
+
+.btn-hamburger {
+	font-size: 1.25em;
+	color: var(--primaryColor);
+	display: none;
+}
+
+.nav-text a {
+	text-decoration: none;
+	color: #fff;
+}
