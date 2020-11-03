@@ -4,10 +4,14 @@
 	justify-content: space-between;
 	align-items: center;
 	background-color: #fff;
-	height: 45px;
-	padding: 16px 25px;
+	height: 40px;
+	padding: 0 25px;
 }
 
-svg {
+.topNav svg {
 	width: 22px;
+}
+
+.topNav__toggle {
+	display: none;
 }

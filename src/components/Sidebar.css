@@ -1,10 +1,7 @@
 .sidebar__menu {
-	position: absolute;
 	width: 70px;
-	height: 100vh;
+	height: calc(100vh - 40px - 60px);
 	background-color: red;
-	top: 0;
-	z-index: -1;
 	transition: width 0.25s ease-in, background-color 0.25s ease-in;
 }
 
@@ -13,17 +10,36 @@
 	background-color: var(--primaryColor);
 }
 
-.sidebar__items {
-	cursor: pointer;
+.sidebar__menu--active {
+	width: 215px;
 }
 
-.btn-hamburger {
+.sidebar__items {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-self: center;
+	height: 100%;
+}
+
+.sidebar__items a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.sidebar__toggle {
 	font-size: 1.25em;
 	color: var(--primaryColor);
 	display: none;
 }
 
-.nav-text a {
-	text-decoration: none;
-	color: #fff;
+.sidebar__link a {
+	display: flex;
+	justify-content: center;
+	align-items: space-around;
+}
+
+.sidebar__link svg {
+	height: 26px;
 }

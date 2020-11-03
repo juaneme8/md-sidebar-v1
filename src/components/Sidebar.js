@@ -4,7 +4,7 @@ import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 
 function Sidebar() {
-	const [sidebar, setSidebar] = useState(true);
+	const [sidebar, setSidebar] = useState(false);
 
 	const showSidebar = () => {
 		setSidebar(!sidebar);
@@ -22,7 +22,7 @@ function Sidebar() {
 					</li>
 					{SidebarData.map((item, index) => {
 						return (
-							<li key={index} className={item.cName}>
+							<li key={index} className='sidebar__link'>
 								<Link to={item.path}>
 									{item.icon}
 									<span>{item.title}</span>

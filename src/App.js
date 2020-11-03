@@ -11,8 +11,8 @@ function App() {
 		<>
 			<Router>
 				<TopNav />
+				<PageTitle title='Resumen' subtitle='Dashboard' />
 				<Sidebar />
-				<PageTitle />
 				<Switch>
 					<Route path='/' />
 				</Switch>

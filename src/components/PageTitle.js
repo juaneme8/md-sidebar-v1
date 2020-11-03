@@ -1,9 +1,9 @@
 import React from 'react';
 import './PageTitle.css';
-function PageTitle() {
+function PageTitle({ title, subtitle }) {
 	return (
 		<div className='pageTitle'>
-			<h3>Resumen | Dashboard</h3>
+			<span className='title'>{title}</span> <span className='separator'>|</span> <span className='subtitle'>{subtitle}</span>
 		</div>
 	);
 }

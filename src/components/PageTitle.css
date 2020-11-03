@@ -1,7 +1,22 @@
 .pageTitle {
 	height: 60px;
+	font-size: 14px;
 	background-color: var(--primaryColor);
 	display: flex;
 	align-items: center;
-	padding-left: 15px;
+	padding-left: 75px;
+	line-height: 40px;
+	color: #f6f5f9;
+}
+
+.title {
+	font-weight: 600;
+}
+
+.separator {
+	margin: 0 5px;
+}
+
+.subtitle {
+	font-weight: 100;
 }

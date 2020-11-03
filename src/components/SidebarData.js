@@ -14,7 +14,6 @@ export const SidebarData = [
 				></path>
 			</svg>
 		),
-		cName: 'nav-text',
 	},
 	{
 		title: 'Facturación',
@@ -29,7 +28,6 @@ export const SidebarData = [
 				></path>
 			</svg>
 		),
-		cName: 'nav-text',
 	},
 	{
 		title: 'Auditor',
@@ -45,7 +43,6 @@ export const SidebarData = [
 				></path>
 			</svg>
 		),
-		cName: 'nav-text',
 	},
 	{
 		title: 'Analisis',
@@ -55,7 +52,6 @@ export const SidebarData = [
 				<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M13 7h8m0 0v8m0-8l-8 8-4-4-6 6'></path>
 			</svg>
 		),
-		cName: 'nav-text',
 	},
 	{
 		title: 'Control',
@@ -70,6 +66,5 @@ export const SidebarData = [
 				></path>
 			</svg>
 		),
-		cName: 'nav-text',
 	},
 ];
