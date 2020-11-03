@@ -2,32 +2,26 @@
 	width: 215px;
 	height: calc(100vh - 40px - 60px);
 	background-color: #fff;
-	transition: width 0.25s ease-in, background-color 0.25s ease-in;
 }
 
 .sidebar__items {
 	list-style: none;
-	text-align: center;
-	margin-left: 20px;
 }
 
 .sidebar__items li {
 	padding-top: 15px;
 }
 
-.sidebar__items a {
+.link__group {
 	text-decoration: none;
 	color: var(--primaryColor);
-}
-
-.link__group {
 	display: flex;
 	justify-content: start;
 	align-items: center;
 }
 
-.link__group svg {
-	width: 40px;
+.link__icon {
+	width: 35px;
 }
 
 .link__title {
