@@ -4,8 +4,8 @@ function InstantGraphs() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
-			.then(res => res.data)
+		fetch('http://api.testing.powermeter.com.ar/meters/electric/')
+			.then(res => res.json())
 			.then(data => {
 				setData(data);
 				console.log(data);
