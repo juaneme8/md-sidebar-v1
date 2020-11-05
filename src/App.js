@@ -4,6 +4,8 @@ import TopNav from './components/TopNav';
 import Sidebar from './components/Sidebar';
 import PageTitle from './components/PageTitle';
 import InstantGraphs from './components/InstantGraphs';
+import Callback from './components/Callback';
+import { useEffect } from 'react';
 
 import './App.css';
 
@@ -15,10 +17,12 @@ function App() {
 				<PageTitle title='Resumen' subtitle='Dashboard' />
 				<Sidebar />
 				<InstantGraphs />
-				<Switch>
-					<Route path='/' />
-				</Switch>
+				<Route exact path='/callback' component={Callback} />
 			</Router>
+
+			<a href='http://api.testing.powermeter.com.ar/o/authorize/?response_type=code&client_id=RDhguCvOW4hVlI0T39tC9jY71Mp3lTOsKf7wAByC&redirect_uri=http://localhost:3000/callback/'>
+				Autorizar
+			</a>
 		</>
 	);
 }
