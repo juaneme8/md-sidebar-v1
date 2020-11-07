@@ -9,6 +9,9 @@ import Callback from './components/Callback';
 import './App.css';
 import Gauge from './components/Gauge';
 
+import Container from './components/Container';
+import 'semantic-ui-css/semantic.min.css';
+
 import axios from 'axios';
 
 const accessToken = '929e76820f9a915f1de7265fce56ce01fc5ec438';
@@ -42,6 +45,8 @@ function App() {
 
 	return (
 		<>
+			<InstantGraphs />
+			<Container />
 			<button onClick={fetchData}>Get data</button>
 			<Router>
 				<div style={{ display: 'flex' }}>
@@ -50,7 +55,6 @@ function App() {
 					<Gauge id='gauge3' color='#fbbd09' value='220' />
 				</div>
 
-				<InstantGraphs />
 				<Route exact path='/callback' component={Callback} />
 				<TopNav />
 				<PageTitle title='Resumen' subtitle='Dashboard' />
