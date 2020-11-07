@@ -22,6 +22,20 @@ function Gauge({ id, color, value }) {
 		chart.endAngle = 45;
 		chart.innerRadius = am4core.percent(94);
 
+		// Main label
+		var label = chart.radarContainer.createChild(am4core.Label);
+		label.layout = 'absolute';
+
+		label.isMeasured = false;
+		label.fontSize = 20;
+		label.x = am4core.percent(100);
+		label.y = am4core.percent(100);
+		label.horizontalCenter = 'middle';
+		label.verticalCenter = 'bottom';
+		label.text = value;
+
+		let topContainer = chart.chartContainer.createChild(am4core.Container);
+
 		// Add ranges
 		let range = axis.axisRanges.create();
 		range.value = 0;

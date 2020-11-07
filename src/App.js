@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import { useCallback } from 'react';
 import TopNav from './components/TopNav';
 import Sidebar from './components/Sidebar';
 import PageTitle from './components/PageTitle';
@@ -9,9 +9,40 @@ import Callback from './components/Callback';
 import './App.css';
 import Gauge from './components/Gauge';
 
+import axios from 'axios';
+
+const accessToken = '929e76820f9a915f1de7265fce56ce01fc5ec438';
+
+// axios.interceptors.request.use(
+// 	config => {
+// 		config.headers.authorization = `Bearer ${accessToken}`;
+// 		return config;
+// 	},
+// 	error => {
+// 		return Promise.reject(error);
+// 	}
+// );
+
+const authAxios = axios.create({
+	baseUrl: 'http://api.testing.powermeter.com.ar',
+	headers: {
+		Authorization: `Token ${accessToken}`,
+	},
+});
+
 function App() {
+	const fetchData = useCallback(async () => {
+		try {
+			const result = await authAxios.get('http://api.testing.powermeter.com.ar/meters/electric/');
+			console.log(result.data);
+		} catch (err) {
+			console.error(err);
+		}
+	});
+
 	return (
 		<>
+			<button onClick={fetchData}>Get data</button>
 			<Router>
 				<div style={{ display: 'flex' }}>
 					<Gauge id='gauge1' color='#e03997' value='220' />
