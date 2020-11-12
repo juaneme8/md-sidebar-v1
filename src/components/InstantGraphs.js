@@ -1,12 +1,7 @@
 import React from 'react';
-import { Header, Image } from 'semantic-ui-react';
 
 function InstantGraphs() {
-	return (
-		<Header as='h2'>
-			<Image src='/images/icons/consumo-instante.png' /> Consumo Instantáneo
-		</Header>
-	);
+	return <h1>Consumo Instantáneo</h1>;
 }
 
 export default InstantGraphs;

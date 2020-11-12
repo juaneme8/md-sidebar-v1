@@ -7,38 +7,14 @@ import InstantGraphs from './components/InstantGraphs';
 import Callback from './components/Callback';
 
 import './App.css';
-import Gauge from './components/Gauge';
-
-import Container from './components/Container';
-import 'semantic-ui-css/semantic.min.css';
-
-import axios from 'axios';
-
-const accessToken = '929e76820f9a915f1de7265fce56ce01fc5ec438';
-const apiUrl = 'http://api.testing.powermeter.com.ar';
-
-const authAxios = axios.create({
-	baseUrl: apiUrl,
-	headers: {
-		Authorization: `Token ${accessToken}`,
-	},
-});
+// import Gauge from './components/Gauge';
+// import Container from './components/Container';
 
 function App() {
-	const fetchData = useCallback(async () => {
-		try {
-			const result = await authAxios.get(`${apiUrl}/meters/electric/`);
-			console.log(result.data);
-		} catch (err) {
-			console.error(err);
-		}
-	});
-
 	return (
 		<>
 			{/* <InstantGraphs /> */}
 			{/* <Container /> */}
-			<button onClick={fetchData}>Get data</button>
 			<Router>
 				{/* <div style={{ display: 'flex' }}>
 					<Gauge id='gauge1' color='#e03997' value='220' />

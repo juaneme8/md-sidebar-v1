@@ -1,8 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import queryString from 'query-string';
 
 function Callback(props) {
+	const apiUrl = 'http://api.testing.powermeter.com.ar';
+	//Create a new axios instance to set custom defaults for application
+	const api = axios.create({
+		baseURL: apiUrl,
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
+		},
+	});
+
+	const [tree, setTree] = useState([]);
+
 	useEffect(() => {
 		const getToken = async () => {
 			const code = new URLSearchParams(props.location.search).get('code');
@@ -25,18 +36,27 @@ function Callback(props) {
 		};
 
 		const getMeter = async () => {
-			const result = await axios({
-				method: 'get',
-				url: 'http://api.testing.powermeter.com.ar/meters/electric/',
-				headers: {
-					Authorization: `Bearer ${localStorage.getItem('token')}`,
-				},
-			});
-
-			console.log(result.data);
+			try {
+				const result = await api.get(`/hierarchy/locations/`);
+				console.log(result.data);
+				setTree(result.data);
+			} catch (err) {
+				console.error(err);
+			}
 		};
+		// const getMeter = async () => {
+		// 	const result = await axios({
+		// 		method: 'get',
+		// 		url: 'http://api.testing.powermeter.com.ar/meters/electric/',
+		// 		headers: {
+		// 			Authorization: `Bearer ${localStorage.getItem('token')}`,
+		// 		},
+		// 	});
 
-		getToken();
+		// 	console.log(result.data);
+		// };
+
+		//getToken();
 		getMeter();
 	}, []);
 
