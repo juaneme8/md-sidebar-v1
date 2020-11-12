@@ -15,19 +15,10 @@ import 'semantic-ui-css/semantic.min.css';
 import axios from 'axios';
 
 const accessToken = '929e76820f9a915f1de7265fce56ce01fc5ec438';
-
-// axios.interceptors.request.use(
-// 	config => {
-// 		config.headers.authorization = `Bearer ${accessToken}`;
-// 		return config;
-// 	},
-// 	error => {
-// 		return Promise.reject(error);
-// 	}
-// );
+const apiUrl = 'http://api.testing.powermeter.com.ar';
 
 const authAxios = axios.create({
-	baseUrl: 'http://api.testing.powermeter.com.ar',
+	baseUrl: apiUrl,
 	headers: {
 		Authorization: `Token ${accessToken}`,
 	},
@@ -36,7 +27,7 @@ const authAxios = axios.create({
 function App() {
 	const fetchData = useCallback(async () => {
 		try {
-			const result = await authAxios.get('http://api.testing.powermeter.com.ar/meters/electric/');
+			const result = await authAxios.get(`${apiUrl}/meters/electric/`);
 			console.log(result.data);
 		} catch (err) {
 			console.error(err);
@@ -45,20 +36,22 @@ function App() {
 
 	return (
 		<>
-			<InstantGraphs />
-			<Container />
+			{/* <InstantGraphs /> */}
+			{/* <Container /> */}
 			<button onClick={fetchData}>Get data</button>
 			<Router>
-				<div style={{ display: 'flex' }}>
+				{/* <div style={{ display: 'flex' }}>
 					<Gauge id='gauge1' color='#e03997' value='220' />
 					<Gauge id='gauge2' color='#00c3a5' value='220' />
 					<Gauge id='gauge3' color='#fbbd09' value='220' />
-				</div>
+				</div> */}
 
-				<Route exact path='/callback' component={Callback} />
-				<TopNav />
-				<PageTitle title='Resumen' subtitle='Dashboard' />
-				<Sidebar />
+				<Switch>
+					<Route path='/callback' component={Callback} />
+				</Switch>
+				{/* <TopNav /> */}
+				{/* <PageTitle title='Resumen' subtitle='Dashboard' /> */}
+				{/* <Sidebar /> */}
 				<a href='http://api.testing.powermeter.com.ar/o/authorize/?response_type=code&client_id=RDhguCvOW4hVlI0T39tC9jY71Mp3lTOsKf7wAByC&redirect_uri=http://localhost:3000/callback/'>
 					Autorizar
 				</a>

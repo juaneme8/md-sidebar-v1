@@ -1,66 +1,48 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
+import queryString from 'query-string';
 
 function Callback(props) {
-	// app.get('/callback', function(req, res) {
-	// 	let code = req.query.code || null
-	// 	let authOptions = {
-	// 	  url: 'https://accounts.spotify.com/api/token',
-	// 	  form: {
-	// 		code: code,
-	// 		redirect_uri,
-	// 		grant_type: 'authorization_code'
-	// 	  },
-	// 	  headers: {
-	// 		'Authorization': 'Basic ' + (new Buffer(
-	// 		  process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
-	// 		).toString('base64'))
-	// 	  },
-	// 	  json: true
-	// 	}
-	// 	request.post(authOptions, function(error, response, body) {
-	// 	  var access_token = body.access_token
-	// 	  let uri = process.env.FRONTEND_URI || 'http://localhost:3000'
-	// 	  res.redirect(uri + '?access_token=' + access_token)
-	// 	})
-	//   })
-
 	useEffect(() => {
-		const code = new URLSearchParams(props.location.search).get('code');
-		console.log(code);
+		const getToken = async () => {
+			const code = new URLSearchParams(props.location.search).get('code');
 
-		(async () => {
-			const rawResponse = await fetch('http://api.testing.powermeter.com.ar/o/token', {
-				method: 'POST',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/x-www-form-urlencoded,application/x-www-form-urlencoded',
-				},
-				body: JSON.stringify({
+			const result = await axios({
+				method: 'post',
+				url: 'http://api.testing.powermeter.com.ar/o/token/',
+				data: queryString.stringify({
 					grant_type: 'authorization_code',
 					code: code,
-					redirect_uri: 'http://localhost:3000/callback',
+					redirect_uri: 'http://localhost:3000/callback/',
 					client_id: 'RDhguCvOW4hVlI0T39tC9jY71Mp3lTOsKf7wAByC',
 				}),
+				headers: {
+					'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+				},
 			});
-			const content = await rawResponse.json();
 
-			console.log(content);
-		})();
+			localStorage.setItem('token', result.data.access_token);
+		};
 
-		fetch(
-			`http://api.testing.powermeter.com.ar/o/token?grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/callback/&client_id=RDhguCvOW4hVlI0T39tC9jY71Mp3lTOsKf7wAByC`,
-			{
-				method: 'POST',
-			}
-		)
-			.then(response => response.json())
-			.then(data => console.log(data));
-	}, []); //http://api.testing.powermeter.com.ar/o/authorize/?response_type=code&client_id=RDhguCvOW4hVlI0T39tC9jY71Mp3lTOsKf7wAByC&redirect_uri=http://localhost:3000/callback/'
-	//`http://api.testing.powermeter.com.ar/o/token/?client_id=RDhguCvOW4hVlI0T39tC9jY71Mp3lTOsKf7wAByC&grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/callback/`;
+		const getMeter = async () => {
+			const result = await axios({
+				method: 'get',
+				url: 'http://api.testing.powermeter.com.ar/meters/electric/',
+				headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`,
+				},
+			});
+
+			console.log(result.data);
+		};
+
+		getToken();
+		getMeter();
+	}, []);
 
 	return (
 		<div>
-			<h1>titulos</h1>
+			<h1>CALLBACK</h1>
 		</div>
 	);
 }
